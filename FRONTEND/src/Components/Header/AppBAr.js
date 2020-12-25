@@ -80,8 +80,8 @@ export default function SearchAppBar() {
                     >
                         <MenuIcon />
                     </IconButton> */}
-                    <Typography className={classes.title} variant="h6" noWrap style = {{height : "50%"}}>
-                        <img  alt="" src = {Logo} />
+                    <Typography className={classes.title} variant="h6" >
+                        <img position= "static"  alt="" src = {Logo} />
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
