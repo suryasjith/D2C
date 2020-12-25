@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const DealToday = () => {
+const MyDeal = () => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
@@ -25,7 +25,7 @@ const DealToday = () => {
                 <Grid item xs={12}>
 
                     <Paper className = {classes.paper}>
-                       <img position= "static" width = "100%" height =  "20%" src= {TDeal}  alt = "Todays Deals"/>
+            <img position= "static" width = "100%" height =  "20%" src= {TDeal}  alt = "Todays Deals"/>
 
                     </Paper>
                     </Grid>
@@ -35,4 +35,4 @@ const DealToday = () => {
     )
 }
 
-export default DealToday;
+export default MyDeal;
