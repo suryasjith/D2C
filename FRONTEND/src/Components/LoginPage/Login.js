@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
+import AccountCircle from '@material-ui/icons/AccountCircle'
+import { FormControl, Input, InputAdornment, InputLabel } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,17 +18,35 @@ const Login = () => {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Username" />
-      <TextField id="standard-basic" label="Password" />
+      <FormControl className={classes.margin}>
+        <InputLabel htmlFor="input-with-icon-adornment">Username</InputLabel>
+        <Input
+        required="required"
+          id="input-with-icon-adornment"
+          startAdornment={
+            <InputAdornment position="start">
+              <AccountCircle />
+            </InputAdornment>
+          }
+        />
+      </FormControl>
+      <FormControl className={classes.margin}>
+        <InputLabel >Password</InputLabel>
+        <Input
+        required="required"
+          id="input-with-icon-adornment"
+         
+        />
+      </FormControl>
 
-   
 
-     
+
+
     </form>
   );
 }
 
-    export default Login ; 
+export default Login;
 
 
 
@@ -76,7 +96,7 @@ const Login = () => {
 //                     <Grid item xs = {4} />
 
 //                         <Grid item xs = {4}>
-                           
+
 //                         </Grid>
 
 //                     <Grid item xs = {4} />

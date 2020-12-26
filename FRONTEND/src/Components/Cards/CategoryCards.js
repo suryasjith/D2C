@@ -34,6 +34,50 @@ const images = [
         title: 'Winter Fashion',
         width: '30%',
     }
+    ,
+
+    {
+        url: Climate,
+        title: 'Winter Fashion',
+        width: '30%',
+    },
+
+    {
+        url: Climate,
+        title: 'Winter Fashion',
+        width: '30%',
+    }
+    ,
+
+    {
+        url: Climate,
+        title: 'Winter Fashion',
+        width: '30%',
+    },
+
+    {
+        url: Climate,
+        title: 'Winter Fashion',
+        width: '30%',
+    },
+
+    {
+        url: Climate,
+        title: 'Winter Fashion',
+        width: '30%',
+    },
+
+    {
+        url: Climate,
+        title: 'Winter Fashion',
+        width: '30%',
+    },
+
+    {
+        url: Climate,
+        title: 'Winter Fashion',
+        width: '30%',
+    }
 ];
 
 
@@ -42,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     paper: {
-        padding: theme.spacing(0),
+        padding: theme.spacing(3),
         textAlign: 'center',
         color: theme.palette.text.secondary,
 
@@ -66,7 +110,7 @@ const useStyles = makeStyles((theme) => ({
         bottom: -250,
         // left: 'calc(50% - 9px)',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
 
     },
     heading: {
@@ -87,7 +131,7 @@ const CategoryCards = () => {
 
     return (
         <div className={classes.root}>
-            <Grid container spacing={0} position="static">
+            <Grid container spacing={1} position="static">
                 <Grid item xs={3} sm={1} md={2} xl={1} lg={1} />
                 <Grid container xs={12} sm={10}>
                     {images.map((image) => (
