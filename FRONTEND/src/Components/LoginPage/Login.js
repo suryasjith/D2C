@@ -1,114 +1,42 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-// import TextField from '@material-ui/core/TextField';
-import AccountCircle from '@material-ui/icons/AccountCircle'
-import { FormControl, Input, InputAdornment, InputLabel } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+import { Button } from '@material-ui/core';
+
+
+
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+            width: '25ch',
+        },
     },
-  },
 }));
 
-const Login = () => {
-  const classes = useStyles();
+export default function Signup() {
+    const classes = useStyles();
 
-  return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <FormControl className={classes.margin}>
-        <InputLabel htmlFor="input-with-icon-adornment">Username</InputLabel>
-        <Input
-        required="required"
-          id="input-with-icon-adornment"
-          startAdornment={
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          }
-        />
-      </FormControl>
-      <FormControl className={classes.margin}>
-        <InputLabel >Password</InputLabel>
-        <Input
-        required="required"
-          id="input-with-icon-adornment"
-         
-        />
-      </FormControl>
+    return (<div>
+      
+        <form className={classes.root} noValidate autoComplete="off">
+            <TextField id="standard-secondary" label="First Name" color="dark" /><br />
+            <TextField id="standard-secondary" label="Last Name" color="dark" /><br />
+            <TextField id="standard-secondary" type= "email" label="Email Id" color="dark" /><br />
+            <TextField id="standard-secondary" type= "email" label="Confirm Email ID" color="dark" /><br />
+            <TextField id="standard-secondary" label="Phone Number" color="dark" /><br /> 
+            <TextField id="standard-secondary" type = "password" label="Enter New Password" color="dark" /><br />
+            <TextField id="standard-secondary" type = "password" label="Re-enter the password" color="dark" />
+            <div style = {{textAlign : "right"}}>
+                
+                
+                <Button> Cancel </Button>
+            <Button > Continue</Button></div>
+            
 
 
-
-
-    </form>
-  );
+            
+        </form></div>
+    );
 }
-
-export default Login;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { Grid } from '@material-ui/core';
-// import React from 'react';
-
-// const Login = () => {
-
-//     return (
-
-//         <div>
-//             <Grid container spacing = {12} >
-//                 <Grid item xs = {12}>
-//                     <Grid item xs = {4} />
-
-//                         <Grid item xs = {4}>
-
-//                         </Grid>
-
-//                     <Grid item xs = {4} />
-//                 </Grid>
-//             </Grid>
-
-
-//         </div>
-
-//     )
-
-// }
-
-
-// export default Login;
