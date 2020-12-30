@@ -89,7 +89,8 @@ const LoginButtonGroup = () => {
     return (
         <div className={classes.root} style={{ textAlign: "right" }}>
             <ButtonGroup variant="text" color="primary" aria-label="text primary button group" size="small">
-                <Button onClick={handleClickOpen}  >Log In</Button>
+            <Button   >Hi User</Button>
+            <Button onClick={handleClickOpen}  >Log In</Button>
                 <Dialog
                     fullScreen={fullScreen}
                     open={open}

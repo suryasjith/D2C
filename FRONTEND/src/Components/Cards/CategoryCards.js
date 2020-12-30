@@ -17,22 +17,26 @@ const images = [
         url: Men,
         title: "Men's Fashion",
         width: '40%',
+        link : "/men"
     },
     {
         url: Women,
         title: "Women's FAshion",
         width: '30%',
+        link : "/women"
     },
     {
         url: Kid,
         title: "Kid's Fashion",
         width: '30%',
+        link : "/kids"
     },
 
     {
         url: Climate,
         title: 'Winter Fashion',
         width: '30%',
+        link : "/climate"
     }
     
 ];
