@@ -14,6 +14,7 @@ import { Divider, FormControl, Grid, IconButton, Input, InputAdornment, InputLab
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import Signup from '../LoginPage/Login';
 import SearchAppBar from '../Header/AppBAr';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -89,7 +90,10 @@ const LoginButtonGroup = () => {
     return (
         <div className={classes.root} style={{ textAlign: "right" }}>
             <ButtonGroup variant="text" color="primary" aria-label="text primary button group" size="small">
-            <Button   >Hi User</Button>
+                <Link to = "/myprofile">
+                <Button   >Hi User</Button>
+                </Link>
+            
             <Button onClick={handleClickOpen}  >Log In</Button>
                 <Dialog
                     fullScreen={fullScreen}

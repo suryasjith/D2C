@@ -3,6 +3,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const AntTabs = withStyles({
     root: {
@@ -100,7 +101,8 @@ const CategoryTabs = () => {
         <div className={classes.root}>
             <div className={classes.demo1}>
                 <AntTabs value={value} onChange={handleChange} aria-label="ant example">
-                    <AntTab label="Home " />
+                    <Link to = "/" ><AntTab label="Home " /></Link>
+                    
                     <AntTab label="Category" />
                     <AntTab style = {{color : "green"}} label="Life" />
 
@@ -118,6 +120,7 @@ const CategoryTabs = () => {
         </div>
     );
 }
+
 
 
 export default CategoryTabs;

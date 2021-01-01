@@ -1,9 +1,10 @@
-import { Grid } from '@material-ui/core'
+import { Divider, Grid } from '@material-ui/core'
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import FooterSection from '../FooterSection/FooterSection'
 import HeaderSection from '../Header/HeaderSection'
 
-export default function MyAddress() {
+ const MyAddress = () => {
     return (
         <div>
             <HeaderSection />
@@ -24,3 +25,5 @@ export default function MyAddress() {
         </div>
     )
 }
+
+export default withRouter(MyAddress);

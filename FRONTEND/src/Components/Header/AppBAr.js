@@ -8,6 +8,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 // import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import Logo from '../../Assets/Images/black sign box.png'
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -81,7 +82,7 @@ export default function SearchAppBar() {
                         <MenuIcon />
                     </IconButton> */}
                     <Typography className={classes.title} variant="h6" >
-                        <img position= "static"  alt="" src = {Logo} />
+                        <Link to ="/" > <img position= "static"  alt="" src = {Logo} /></Link>                       
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>

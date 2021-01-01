@@ -20,9 +20,7 @@ const App = () => {
             <CardSection />
             <MyDeal />
             <FooterSection />
-            
         </div>
-
     )
 }
 
