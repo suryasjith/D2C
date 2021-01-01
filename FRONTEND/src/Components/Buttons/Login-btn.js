@@ -1,20 +1,21 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
+// import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+// import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { Divider, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField } from '@material-ui/core';
-import { Visibility, VisibilityOff } from '@material-ui/icons';
-import Signup from '../LoginPage/Login';
-import SearchAppBar from '../Header/AppBAr';
+import { Divider,  Grid} from '@material-ui/core';
+// import { Visibility, VisibilityOff } from '@material-ui/icons';
+import Signup from '../LoginPage/Signup';
+// import SearchAppBar from '../Header/AppBAr';
 import { Link } from 'react-router-dom';
+import Login from '../LoginPage/Login';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -57,13 +58,13 @@ const LoginButtonGroup = () => {
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
-    const [values, setValues] = React.useState({
-        amount: '',
-        password: '',
-        weight: '',
-        weightRange: '',
-        showPassword: false,
-    });
+    // const [values, setValues] = React.useState({
+    //     amount: '',
+    //     password: '',
+    //     weight: '',
+    //     weightRange: '',
+    //     showPassword: false,
+    // });
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -72,15 +73,15 @@ const LoginButtonGroup = () => {
     const handleClose = () => {
         setOpen(false);
     };
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    }
-    const handleClickShowPassword = () => {
-        setValues({ ...values, showPassword: !values.showPassword });
-    };
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
+    // const handleChange = (prop) => (event) => {
+    //     setValues({ ...values, [prop]: event.target.value });
+    // }
+    // const handleClickShowPassword = () => {
+    //     setValues({ ...values, showPassword: !values.showPassword });
+    // };
+    // const handleMouseDownPassword = (event) => {
+    //     event.preventDefault();
+    // };
 
 
     const handleSubmit = () => {
@@ -95,21 +96,23 @@ const LoginButtonGroup = () => {
                 </Link>
             
             <Button onClick={handleClickOpen}  >Log In</Button>
-                <Dialog
+                <Dialog 
                     fullScreen={fullScreen}
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="responsive-dialog-title"
                 >
-                    <SearchAppBar />
+                   
                     <Grid container >
-                        <Grid item xs={12} sm={5}>
-                            <DialogTitle id="responsive-dialog-title">{"Login"}</DialogTitle>
-                            <Divider variant="middle"/>
+                        <Grid item xs={12} >
+                            {/* <DialogTitle id="responsive-dialog-title">{"Login"}</DialogTitle> */}
+                            <Button  onClick={handleClose}>Cancel</Button>
+                            {/* <Divider variant="middle"/> */}
                             <form onSubmit={handleSubmit}  >
                                 <DialogContent>
-                                    <DialogContentText>
-                                        <FormControl className={classes.margin}>
+                                   
+                                        <Login />
+                                        {/* <FormControl className={classes.margin}>
                                             <TextField
                                                 required
                                                 id="standard"
@@ -138,10 +141,10 @@ const LoginButtonGroup = () => {
                                                     </InputAdornment>
                                                 }
                                             />
-                                        </FormControl>
-                                    </DialogContentText>
+                                        </FormControl> */}
+                                   
                                 </DialogContent>
-                                <DialogActions>
+                                {/* <DialogActions>
                                     <Button size="small" type="submit" onClick={handleClose} autoFocus color="dark">
                                         Forgotten password?
                                 </Button>
@@ -151,13 +154,15 @@ const LoginButtonGroup = () => {
                                     <Button color="dark" autoFocus>
                                         Login
                                 </Button>
-                                </DialogActions>
+                                </DialogActions> */}
                             </form> 
 
-                        </Grid><Grid item  xs = {1}><Divider orientation="vertical" flexItem /></Grid>
+                        </Grid>
+                        <br /> <br />
+                        {/* <Grid item  xs = {1}><Divider orientation="vertical" flexItem /></Grid> */}
                         
-                        <Grid item xs={12} sm={6}>
-                            <DialogTitle id="responsive-dialog-title">{"Create Account"}</DialogTitle>
+                        <Grid item xs={12} >
+                            {/* <DialogTitle id="responsive-dialog-title">{"Signup here"}</DialogTitle> */}
                             <Divider variant="middle"/>
                             <DialogContent>
                                 <DialogContentText>
