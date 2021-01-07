@@ -1,8 +1,7 @@
 import { Button, Grid, makeStyles, Paper } from '@material-ui/core'
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import FooterSection from '../FooterSection/FooterSection'
-import HeaderSection from '../Header/HeaderSection'
+import Base from '../Core/Base'
 const content = [
     {
         // id: uuid(v4),
@@ -64,35 +63,37 @@ const MyProfile = () => {
 
 
         <div className={classes.root}>
-            <HeaderSection />
-            <Grid container spacing={0} position="static">
-                <Grid item xs>
-                </Grid>
-                <Grid container xs={11} spacing={4} >
-                    {content.map((content) => (
-                        <Grid item xs={12} sm={4} md={4} lg={3}>
-                            <Paper className={classes.paper} id={content.id} elevation={3}>
-                                <h4 >
-                                    {content.title}
-                                </h4>
-                                <p>
-                                    {content.description}
-                                </p>
-                                <Link to={content.url}>
-                                    <Button >
-                                        View
-                                </Button>
-                                </Link>
+            <Base >
 
-                            </Paper>
-                            <br />
-                        </Grid>
-                    ))}
+                <Grid container spacing={0} position="static">
+                    <Grid item xs>
+                    </Grid>
+                    <Grid container xs={11} spacing={4} >
+                        {content.map((content) => (
+                            <Grid item xs={12} sm={4} md={4} lg={3}>
+                                <Paper className={classes.paper} id={content.id} elevation={3}>
+                                    <h4 >
+                                        {content.title}
+                                    </h4>
+                                    <p>
+                                        {content.description}
+                                    </p>
+                                    <Link to={content.url}>
+                                        <Button >
+                                            View
+                                        </Button>
+                                    </Link>
+                                </Paper>
+                                <br />
+                            </Grid>
+                        ))}
+                    </Grid>
+                    <Grid item xs>
+                    </Grid>
                 </Grid>
-                <Grid item xs>
-                </Grid>
-            </Grid>
-            <FooterSection />
+            </Base>
+
+
         </div>
     )
 }

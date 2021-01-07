@@ -1,26 +1,23 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-// import clsx from 'clsx';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
-// import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-// import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { Divider,  Grid} from '@material-ui/core';
-// import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { Divider, Grid } from '@material-ui/core';
 import Signup from '../LoginPage/Signup';
-// import SearchAppBar from '../Header/AppBAr';
-import { Link } from 'react-router-dom';
+import { Link, withRouter, useHistory } from 'react-router-dom';
 import Login from '../LoginPage/Login';
+import { signout, isAuthenticated } from '../auth/Helper';
+
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
-       
+
         flexDirection: 'column',
         alignItems: 'center',
         alignContent: 'right',
@@ -52,19 +49,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 const LoginButtonGroup = () => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const fullScreen = useMediaQuery(theme.breakpoints.down('xs'));
 
-    // const [values, setValues] = React.useState({
-    //     amount: '',
-    //     password: '',
-    //     weight: '',
-    //     weightRange: '',
-    //     showPassword: false,
-    // });
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -73,109 +64,67 @@ const LoginButtonGroup = () => {
     const handleClose = () => {
         setOpen(false);
     };
-    // const handleChange = (prop) => (event) => {
-    //     setValues({ ...values, [prop]: event.target.value });
-    // }
-    // const handleClickShowPassword = () => {
-    //     setValues({ ...values, showPassword: !values.showPassword });
-    // };
-    // const handleMouseDownPassword = (event) => {
-    //     event.preventDefault();
-    // };
 
 
-    const handleSubmit = () => {
-        // your submit logic
-    }
 
+
+    let history = useHistory();
     return (
         <div className={classes.root} style={{ textAlign: "right" }}>
-            <ButtonGroup variant="text" color="primary" aria-label="text primary button group" size="small">
-                <Link to = "/myprofile">
-                <Button   >Hi User</Button>
-                </Link>
-            
-            <Button onClick={handleClickOpen}  >Log In</Button>
-                <Dialog 
-                    fullScreen={fullScreen}
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="responsive-dialog-title"
-                >
-                   
-                    <Grid container >
-                        <Grid item xs={12} >
-                            {/* <DialogTitle id="responsive-dialog-title">{"Login"}</DialogTitle> */}
-                            <Button  onClick={handleClose}>Cancel</Button>
-                            {/* <Divider variant="middle"/> */}
-                            <form onSubmit={handleSubmit}  >
+            {isAuthenticated() && isAuthenticated().user.role === 1 && (
+                <>
+                    <ButtonGroup variant="text" color="primary" aria-label="text primary button group" size="small">
+                        <Link to="/admin/dashboard">
+                            <Button   >Hi Admin</Button>
+                        </Link>
+                    </ButtonGroup>
+                </>
+            )}
+            {isAuthenticated() && (<>
+                <ButtonGroup variant="text" color="primary" aria-label="text primary button group" size="small">
+                    <Link to="/user/dashboard">
+                        <Button   >Hi user</Button>
+                    </Link>
+                    <Link to="/cart">
+                        <Button   >My cart</Button>
+                    </Link>
+                    <Button onClick={() => {
+                        signout(() => {
+                            history.push('/')
+                        })
+                    }}  >Sign Out</Button>
+                </ButtonGroup> </>)}
+            {!isAuthenticated() && (<>
+                <ButtonGroup variant="text" color="primary" aria-label="text primary button group" size="small">
+                    <Button onClick={handleClickOpen}  >Sign in</Button>
+                    <Dialog
+                        fullScreen={fullScreen}
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="responsive-dialog-title" >
+                        <Grid container >
+                            <Grid item xs={12} >
+                                <Button onClick={handleClose}>Cancel</Button>
                                 <DialogContent>
-                                   
-                                        <Login />
-                                        {/* <FormControl className={classes.margin}>
-                                            <TextField
-                                                required
-                                                id="standard"
-                                                label="Username"
-                                                type="text"
-                                                autoComplete="disable"
-                                            />
-                                        </FormControl>
-                                        <br />
-                                        <FormControl className={clsx(classes.margin, classes.textField)}>
-                                            <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
-                                            <Input
-                                                id="standard-adornment-password"
-                                                type={values.showPassword ? 'text' : 'password'}
-                                                value={values.password}
-                                                onChange={handleChange('password')}
-                                                endAdornment={
-                                                    <InputAdornment position="end">
-                                                        <IconButton
-                                                            aria-label="toggle password visibility"
-                                                            onClick={handleClickShowPassword}
-                                                            onMouseDown={handleMouseDownPassword}
-                                                        >
-                                                            {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                                                        </IconButton>
-                                                    </InputAdornment>
-                                                }
-                                            />
-                                        </FormControl> */}
-                                   
+                                    <Login />
                                 </DialogContent>
-                                {/* <DialogActions>
-                                    <Button size="small" type="submit" onClick={handleClose} autoFocus color="dark">
-                                        Forgotten password?
-                                </Button>
-                                    <Button type="submit" onClick={handleClose} autoFocus color="dark">
-                                        Cancel
-                                </Button>
-                                    <Button color="dark" autoFocus>
-                                        Login
-                                </Button>
-                                </DialogActions> */}
-                            </form> 
-
+                            </Grid>
+                            <br /> <br />
+                            <Grid item xs={12} >
+                                <Divider variant="middle" />
+                                <DialogContent>
+                                    <DialogContentText>
+                                        <Signup />
+                                    </DialogContentText>
+                                </DialogContent>
+                            </Grid>
                         </Grid>
-                        <br /> <br />
-                        {/* <Grid item  xs = {1}><Divider orientation="vertical" flexItem /></Grid> */}
-                        
-                        <Grid item xs={12} >
-                            {/* <DialogTitle id="responsive-dialog-title">{"Signup here"}</DialogTitle> */}
-                            <Divider variant="middle"/>
-                            <DialogContent>
-                                <DialogContentText>
-                                    <Signup/>
-                                </DialogContentText>
-                            </DialogContent>
-                        </Grid>
-                    </Grid>
-                </Dialog>
-                <Button onClick={handleClickOpen}>Sign Up</Button>
-            </ButtonGroup>
+                    </Dialog>
+                    <Button onClick={handleClickOpen}>Sign Up</Button>
+                </ButtonGroup>   </>
+            )}
         </div>
     );
 }
 
-export default LoginButtonGroup;
+export default withRouter(LoginButtonGroup);
