@@ -105,7 +105,7 @@ const SignUp = () => {
 
   }
   const ErrorMessage = () => {
-    return (<div className="alert alert-success"
+    return (<div className="alert alert-danger"
       style={{ display: error ? "" : "none" }} >
       {error}
     </div>)

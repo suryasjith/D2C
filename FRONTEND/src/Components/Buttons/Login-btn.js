@@ -75,18 +75,23 @@ const LoginButtonGroup = () => {
                 <>
                     <ButtonGroup variant="text" color="primary" aria-label="text primary button group" size="small">
                         <Link to="/admin/dashboard">
-                            <Button   >Hi Admin</Button>
+                            <Button   >Hi {isAuthenticated().user.name}</Button>
                         </Link>
+                        <Button onClick={() => {
+                        signout(() => {
+                            history.push('/')
+                        })
+                    }}  >Sign Out</Button>
                     </ButtonGroup>
                 </>
             )}
-            {isAuthenticated() && (<>
+            {isAuthenticated()  && isAuthenticated().user.role === 0 && (<>
                 <ButtonGroup variant="text" color="primary" aria-label="text primary button group" size="small">
                     <Link to="/user/dashboard">
-                        <Button   >Hi user</Button>
+                        <Button   >Hi {isAuthenticated().user.name}</Button>
                     </Link>
                     <Link to="/cart">
-                        <Button   >My cart</Button>
+                        <Button   >{isAuthenticated().user.name}'s cart</Button>
                     </Link>
                     <Button onClick={() => {
                         signout(() => {

@@ -5,6 +5,8 @@ import PrivateRoute from '../Components/auth/Helper/PrivateRoutes'
 
 import Home from '../Components/Core/Home'
 import PageNotFound from '../Components/ErrorPage/PageNotFound'
+import AddCategory from '../Components/Profile/AddCategory'
+import AddProduct from '../Components/Profile/AddProduct'
 import AdminProfile from '../Components/Profile/AdminProfile'
 // import MyAddress from '../Components/Profile/My Address'
 // import MyOrders from '../Components/Profile/MyOrders'
@@ -24,6 +26,8 @@ export default function Routes () {
                     {/* <PrivateRoute  exact path = "/myaddresses" component = {MyAddress} />
                     <PrivateRoute   exact path = "/mypayment" component = {MyPayment} />
                     <PrivateRoute  exact path = "/orders" component = {MyOrders}/> */}
+                    <AdminRoute exact path = "/admin/create/category" component = {AddCategory} />
+                    <AdminRoute exact path = "/admin/create/product" component = {AddProduct} />
 
                     <Route exact component = {PageNotFound} />
                 </Switch>

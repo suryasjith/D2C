@@ -11,8 +11,8 @@ exports.signout = (req, res) => {
     //NOTE : clearing token from cookies
     res.clearCookie("token");
     res.json({
-        message : "user signed out"
-    })    
+        message: "user signed out"
+    })
 };
 
 //SECTION : Signin
@@ -35,7 +35,7 @@ exports.signin = (req, res) => {
                 error: "Email not registered"
             })
         }
-        if (!user.authenticate(password)) { 
+        if (!user.authenticate(password)) {
             return res.status(401).json({
                 error: "Incorrect password for the given user id"
             })
@@ -47,8 +47,8 @@ exports.signin = (req, res) => {
         res.cookie("token", token, { expire: new Date() + 9999 })
 
         //NOTE : sending response to frontend
-        const { _id, name, email, role } = user;
-        return res.json({ token, user: { _id, name, email, role } })
+        const { _id, name, lastname, email, role } = user;
+        return res.json({ token, user: { _id, name, lastname, email, role } })
     })
 };
 
@@ -75,6 +75,7 @@ exports.signup = (req, res) => {
         }
         res.json({
             name: user.name,
+            lastname: user.lastname,
             email: user.email,
             id: user._id
         })
@@ -87,25 +88,25 @@ exports.signup = (req, res) => {
 //NOTE: protected routes ...its also a middleware 
 //..it doesnt has a next because it has expressJWT
 exports.isSgnedIn = expressJwt({
-    secret : process.env.SECRET,
-    userProperty : "auth"
+    secret: process.env.SECRET,
+    userProperty: "auth"
 })
 
 //NOTE : custom middleware to check user has authentication
-exports.isAuthenticated = (req , res , next) => {
+exports.isAuthenticated = (req, res, next) => {
     let checker = req.profile && req.auth && req.profile._id == req.auth._id
-    if (!checker){
+    if (!checker) {
         return res.status(403).json({
-            error : "Access denied"
+            error: "Access denied"
         })
     }
     next();
 }
 //NOTE : custom middleware to check user has admin privilage...
-exports.isAdmin = (req, res , next) =>{
+exports.isAdmin = (req, res, next) => {
     if (req.profile.role === 0) {
         return res.status(403).json({
-            error : "Access denied ,  permited section for admins only"
+            error: "Access denied ,  permited section for admins only"
         })
     }
     next();
