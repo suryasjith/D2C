@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     paper: {
-        padding: theme.spacing(3),
+        padding: theme.spacing(4),
         textAlign: 'center',
         color: theme.palette.text.secondary,
         height: "200px",
@@ -64,14 +64,18 @@ const MyProfile = () => {
 
         <div className={classes.root}>
             <Base >
+            <br />
+            <br />
+            <br />
+
 
                 <Grid container spacing={0} position="static">
                     <Grid item xs>
                     </Grid>
-                    <Grid container xs={11} spacing={4} >
+                    <Grid container xs={10} sm={10} md={10} lg={6} spacing={4} >
                         {content.map((content) => (
-                            <Grid item xs={12} sm={4} md={4} lg={3}>
-                                <Paper className={classes.paper} id={content.id} elevation={3}>
+                            <Grid item xs={12} sm={6} md={4} lg={4}>
+                                <Paper className={classes.paper} id={content.id} >
                                     <h4 >
                                         {content.title}
                                     </h4>
@@ -91,6 +95,13 @@ const MyProfile = () => {
                     <Grid item xs>
                     </Grid>
                 </Grid>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
             </Base>
 
 

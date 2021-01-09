@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const AntTabs = withStyles({
     root: {
+        backgroundColor: '#f1f6f9',
         borderBottom: '1px solid #e8e8e8',
     },
     indicator: {

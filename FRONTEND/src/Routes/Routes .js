@@ -13,6 +13,7 @@ import AdminProfile from '../Components/Profile/AdminProfile'
 // import MyPayment from '../Components/Profile/MyPayment'
 import MyProfile from '../Components/Profile/MyProfile'
 import MyWishlist from '../Components/Profile/MyWishlist'
+import Products from '../Components/Profile/Products'
 export default function Routes () {
     return (
         <div>
@@ -28,7 +29,7 @@ export default function Routes () {
                     <PrivateRoute  exact path = "/orders" component = {MyOrders}/> */}
                     <AdminRoute exact path = "/admin/create/category" component = {AddCategory} />
                     <AdminRoute exact path = "/admin/create/product" component = {AddProduct} />
-
+                    <AdminRoute exact path = "/admin/products" component = {Products} />
                     <Route exact component = {PageNotFound} />
                 </Switch>
             </Router>
