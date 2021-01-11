@@ -1,12 +1,20 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
 import Grid from '@material-ui/core/Grid';
 import Men from '../../Assets/Images/Men.jpg'
 import Women from '../../Assets/Images/Women.jpg'
 import Kid from '../../Assets/Images/Kid.jpg'
 import Climate from '../../Assets/Images/Winter.jpg'
-import { Button, Divider } from '@material-ui/core';
+import { Divider } from '@material-ui/core';
+
 
 
 
@@ -17,100 +25,87 @@ const images = [
         url: Men,
         title: "Men's Fashion",
         width: '40%',
-        link : "/men"
+        link: "/men"
     },
     {
         url: Women,
-        title: "Women's FAshion",
+        title: "Women's Fashion",
         width: '30%',
-        link : "/women"
+        link: "/women"
     },
     {
         url: Kid,
         title: "Kid's Fashion",
         width: '30%',
-        link : "/kids"
+        link: "/kids"
     },
 
     {
         url: Climate,
         title: 'Winter Fashion',
         width: '30%',
-        link : "/climate"
+        link: "/climate"
     }
-    
+
 ];
-
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
     root: {
-        flexGrow: 1,
+        maxWidth: 345,
+        maxHeight: 700
     },
-    paper: {
-        padding: theme.spacing(2),
-        paddingInline : "5px",
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-
-        width: '337px',
-        height: '488px',
-        backgroundRepeat: 'no-repeat',
-        left: '27px',
-        top: '993px',
-    },
-    paper1: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-      },
-    button: {
-        backgroundColor: "#ffffff",
-        // alignContent : 'center',
-        position: 'relative',
-        padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
-        // position: 'absolute',
-        // left: 0,
-        // right: 0,
-        // top: 0,
-        // bottom: 0,
-        // display: 'flex',
-        bottom: -250,
-        // left: 'calc(50% - 9px)',
-        alignItems: 'center',
-        justifyContent: 'center'
-
-    },
-    heading: {
-        position: 'relative',
-        backgroundColor: "#875421",
-        color: "#000",
-        bottom: -240,
-        // left: 'calc(50% - 9px)',
-        alignItems: 'center',
-        justifyContent: 'center',
+});
 
 
-    }
-}));
 
 const CategoryCards = () => {
     const classes = useStyles();
 
     return (
-        <div  className={classes.root}>
+        <div  >
+            <br />
+            <Divider />
+            <Typography style={{
+                textAlign: "center",
+                fontFamily: 'Nova Flat',
+            }} >
+                <span >
+                    <h3>
+                        Shop By Category
+                    </h3>
+                </span>
+            </Typography>
+            <Divider />
+            <br />
             <Grid container spacing={0} position="static">
                 <Grid item xs>
-                    </Grid>
-                <Grid container xs={11} >
+                </Grid>
+                <Grid container spacing={1} xs={12} sm={10} >
                     {images.map((image) => (
-                        <Grid item xs = {12} sm={6} md ={4} lg ={3}>
-                            <Paper className={classes.paper} elevation={3} style={{ backgroundImage: `url(${image.url})` }}>
-                                <h3 className={classes.heading} >{image.title} <Divider /> </h3>
-                                <Button className={classes.button}>Shop Now</Button>
-                            </Paper>
+                        <Grid item xs={6} sm={6} md={3} lg={3}>
+                            <Card className={classes.root} variant="no-outlined">
+                                <CardActionArea>
+                                    <CardMedia
+                                        component="img"
+                                        alt="Contemplative Reptile"
+                                        image={image.url}
+                                        title="Contemplative Reptile"
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            {image.title}
+                                        </Typography>
+                                        <Typography variant="body2" color="textSecondary" component="p">
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                                <CardActions>
+                                    <Button color="black">
+                                        Shop now
+                                    </Button>
+                                </CardActions>
+                            </Card>
                             <br />
-                            </Grid>
-                        
+                        </Grid>
                     ))}
                 </Grid>
                 <Grid item xs>

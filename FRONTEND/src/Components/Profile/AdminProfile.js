@@ -77,8 +77,8 @@ const AdminProfile = () => {
             <br />
             <Grid container >
                 <Grid item xs />
-                <Grid container xs={12} sm={12} md={12} lg={8} spacing={4} >
-                <Grid item xs={12} sm={4} md={3} lg= {2}>
+                <Grid container xs={12} sm={12} md={12} lg={12} spacing={4} >
+                <Grid item xs={12} sm={4} md={3} lg= {3}>
                     {adminLeftSide()}
                 </Grid>
                 <Grid item xs={12} sm md lg>

@@ -17,7 +17,7 @@ import { signout, isAuthenticated } from '../auth/Helper';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-
+        color : "#ffffff",
         flexDirection: 'column',
         alignItems: 'center',
         alignContent: 'right',

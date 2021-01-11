@@ -10,7 +10,7 @@ const Home = () => {
             <Base>
             <Deals />
             <CardSection />
-            <Deals />
+        
             </Base>
         </div>
     )

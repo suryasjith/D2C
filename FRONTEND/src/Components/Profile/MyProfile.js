@@ -72,7 +72,7 @@ const MyProfile = () => {
                 <Grid container spacing={0} position="static">
                     <Grid item xs>
                     </Grid>
-                    <Grid container xs={10} sm={10} md={10} lg={6} spacing={4} >
+                    <Grid container xs={10} sm={10} md={10} lg={10} spacing={4} >
                         {content.map((content) => (
                             <Grid item xs={12} sm={6} md={4} lg={4}>
                                 <Paper className={classes.paper} id={content.id} >

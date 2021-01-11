@@ -91,8 +91,8 @@ const AddCategory = () => {
                 <br />
                 <br />
                 <Grid container >
-                    <Grid item xs={12} sm={5} />
-                    <Grid item xs={12} sm={4} md={4} lg={2} >
+                    <Grid item xs />
+                    <Grid item xs={10} sm={4} md={4} lg={6} >
                         <Paper style={{
                             padding: "3",
                             paddingLeft: 40,
@@ -106,7 +106,7 @@ const AddCategory = () => {
                             {errorMessage()}
                         </Paper>
                     </Grid>
-                    <Grid item xs={12} sm={5} />
+                    <Grid item xs/>
                 </Grid>
                 <br />
                 <br />

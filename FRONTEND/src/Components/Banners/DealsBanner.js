@@ -3,29 +3,19 @@
 import { Divider } from '@material-ui/core';
 import React from 'react';
 // import { Picture } from 'react-responsive-picture';
-import deal from '../../Assets/Images/New Project (4).jpg'
-import DealToday from './TodaysDeal';
+import deal from '../../Assets/Images/whitebgtry.jpg'
+
 
 
 
 const Deals = () => {
 
     return (
-        <div >   <DealToday />
+        <div > 
             <Divider />
-            <img position="static" width="100%" height="20%" src={deal} alt="Todays Deals" />
-
-
-
-
-
-
+                <img position="static" width="100%" height="20%" src={deal} alt="Todays Deals" />
         </div>
-
-
-
     )
-
 }
 
 export default Deals;

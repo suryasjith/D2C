@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-// import IconButton from '@material-ui/core/IconButton';
+import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -9,6 +9,9 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import Logo from '../../Assets/Images/black sign box.png'
 import { Link } from 'react-router-dom';
+import LoginBtn from '../Buttons/Login-btn';
+import LocationIcon from '../Locations/LocationIcon';
+import { useScrollTrigger } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -40,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     searchIcon: {
+        color: "#000000",
         padding: theme.spacing(0, 2),
         height: '100%',
         position: 'absolute',
@@ -52,38 +56,60 @@ const useStyles = makeStyles((theme) => ({
         color: 'inherit',
     },
     inputInput: {
+        color: "#000000",
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('sm')]: {
-            width: '12ch',
+            width: '25ch',
             '&:focus': {
-                width: '20ch',
+                width: '100ch',
             },
         },
     },
 }));
 
-export default function SearchAppBar() {
+
+
+
+function ElevationScroll(props) {
+    const { children, window } = props;
+    // Note that you normally won't need to set the window ref as useScrollTrigger
+    // will default to window.
+    // This is only being set here because the demo is in an iframe.
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 0,
+        target: window ? window() : undefined,
+    });
+
+    return React.cloneElement(children, {
+        elevation: trigger ? 4 : 0,
+    });
+}
+
+ElevationScroll.PropTypes = {
+    children: PropTypes.element.isRequired,
+    /**
+     * Injected by the documentation to work in an iframe.
+     * You won't need it on your project.
+     */
+    window: PropTypes.func,
+};
+
+export default function SearchAppBar(props) {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" style = {{backgroundColor : "#222831"}}>
+  <AppBar position="static" style={{ backgroundColor: "#ffffff" }}>
+                <br />
                 <Toolbar>
-                    {/* <IconButton
-                        edge="start"
-                        className={classes.menuButton}
-                        color="inherit"
-                        aria-label="open drawer"
-                    >
-                        <MenuIcon />
-                    </IconButton> */}
                     <Typography className={classes.title} variant="h6" >
-                        <Link to ="/" > <img position= "static"  alt="" src = {Logo} /></Link>                       
-                    </Typography>
+                        <Link to="/" > <img position="static" alt="" src={Logo} /></Link>
+                    </Typography><span color="#000">Shop    </span>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
@@ -96,9 +122,16 @@ export default function SearchAppBar() {
                             }}
                             inputProps={{ 'aria-label': 'search' }}
                         />
-                    </div>
+
+                    </div> <LoginBtn />
                 </Toolbar>
+                <br />
+                <LocationIcon />
             </AppBar>
+
+
+
+
         </div>
     );
 }
