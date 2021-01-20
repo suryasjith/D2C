@@ -88,7 +88,7 @@ const Login = () => {
       else {
         return (
           <p>
-           <Redirect to ='/'></Redirect>
+          <Redirect to ='/'></Redirect>
           </p>
         )
       }

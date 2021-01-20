@@ -49,15 +49,8 @@ const Base = ({ children }) => {
     return (
         <div>
             {ElevateAppBar()}
-            <br />
-            <Container>
-                <Box
-                >
-                    {children}
-                </Box>
-
-            </Container>
-
+            <br /> 
+            {children} 
             <FooterSection />
 
         </div>
