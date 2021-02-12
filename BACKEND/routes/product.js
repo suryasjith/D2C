@@ -30,7 +30,7 @@ router.get('/product/photo/:productId', photo)
 
 //SECTION: update and delete routes
 router.put('/product/:productId/:userId', isSgnedIn, isAuthenticated, isAdmin, updateProduct)
-router.delete('/product.:productId/:userId', isSgnedIn, isAuthenticated, isAdmin, removeProduct)
+router.delete('/product/:productId/:userId', isSgnedIn, isAuthenticated, isAdmin, removeProduct)
 
 //SECTION: listing route with limitednumber
 router.get('/products', getAllProducts)

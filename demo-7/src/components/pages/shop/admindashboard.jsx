@@ -9,6 +9,7 @@ import Breadcrumb from '../../common/breadcrumb';
 import { isAuthenticated } from '../../../auth/Helper';
 import Products from './products';
 import Category from './category';
+import Allproducts from './allproducts';
 
 function AdminDashBoard() {
     return (
@@ -62,7 +63,7 @@ function AdminDashBoard() {
                                         <div className="col-md-8 col-lg-9" style={ { marginTop: "1rem" } }>
                                             <div className="tab-pane">
                                                 <TabPanel>
-                                                    <Products />
+                                                    <p>No notifications</p>
                                                 </TabPanel>
                                                 <TabPanel>
                                                     <Category />
@@ -70,10 +71,15 @@ function AdminDashBoard() {
                                                 <TabPanel>
                                                    <Products />
                                                 </TabPanel>
-
                                                 <TabPanel>
-                                                    <p>No downloads available yet.</p>
-                                                    <Link to={ `${process.env.PUBLIC_URL}/shop/sidebar/list` } className="btn btn-outline-primary-2"><span>GO SHOP</span><i className="icon-long-arrow-right"></i></Link>
+
+                                                </TabPanel>
+                                                     <TabPanel>
+                                                    
+                                                </TabPanel>
+                                                    
+                                                <TabPanel>
+                                                   <Allproducts />
                                                 </TabPanel>
 
                                                 <TabPanel>
